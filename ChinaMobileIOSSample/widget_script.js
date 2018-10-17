@@ -8,27 +8,24 @@ const bindEvent = (element, eventName, eventHandler) => {
 
 // get from widget
 bindEvent(window, 'message', (event) => {
-          const { origin, data } = event
-          if (data && data.length) {
-          try {
-          const { type } = JSON.parse(data)
-          if (type === 'loaded') {
-          const initialize = {
+  const { origin, data } = event
+  if (data && data.length) {
+    try {
+      const { type } = JSON.parse(data)
+      if (type === 'loaded') {
+        const initialize = {
           type: 'initialize',
           useEnv: 'iOS',
           openWidget: true,
           provider_id: 12
-          }
-          window.webViewBridge.send(initialize)
-          } else if (type === 'end_maximize') {
-          window.webkit.messageHandlers.send.postMessage("end_maximize");
-          } else if (type === 'end_minimize') {
-          window.webkit.messageHandlers.send.postMessage("end_minimize");
-          }
-          } catch (e) {
-          console.log(`caught error in container: ${e}`)
-          }
-          }
-          })
+        }
+        window.webViewBridge.send(initialize)
+        const message = { type: 'loaded' }
+        window.webkit.messageHandlers.send.postMessage(JSON.stringify(message))
+      }
+    } catch (e) {
+    console.log(`caught error in container: ${e}`)
+    }
+  }
+})
 
-// window.webkit.postmessage~~

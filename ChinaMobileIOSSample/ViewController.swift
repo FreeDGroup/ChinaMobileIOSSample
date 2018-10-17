@@ -72,7 +72,6 @@ class ViewController: UIViewController, WKUIDelegate {
 extension ViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "send", let messageBody = message.body as? String {
-            print("here send")
             print(messageBody)
         }
     }
