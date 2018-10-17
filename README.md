@@ -5,7 +5,7 @@
 ## Introduction
 
 We provides the web for chatbot services.
-Ultimately, we will recommend using it through the Nateb sdk.
+Ultimately, we will recommend using it through the Native sdk.
 Until then, we recommend using the webview module in your iOS app.
 
 ## Quick Start
