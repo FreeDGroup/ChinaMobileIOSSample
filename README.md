@@ -1,6 +1,6 @@
 # [Travelflan](https://www.travelflan.com/) Widget iOS Usage Sample For China-mobile
 ![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)
-![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)
+![Languages](https://img.shields.io/badge/language%20%7C%20Swift-orange.svg)
 
 ## Introduction
 
