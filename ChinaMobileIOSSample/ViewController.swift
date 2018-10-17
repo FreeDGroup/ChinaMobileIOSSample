@@ -1,6 +1,5 @@
 //
 //  ViewController.swift
-//  Test
 //
 //  Created by JiWon Yoon on 09/10/2018.
 //  Copyright © 2018 JiWon Yoon. All rights reserved.
@@ -39,13 +38,13 @@ class ViewController: UIViewController, WKUIDelegate {
         
         // set WKWebView
         webView = WKWebView(frame: .zero, configuration: config)
-        //        webView.uiDelegate = self
+        // webView.uiDelegate = self
         webView.isHidden = true
-        //  view.addSubview(webView)
+        // view.addSubview(webView)
         
         self.view.addSubview(webView)
         
-        //  constraint
+        // handle constraint
         // let layoutGuide = view.safeAreaLayoutGuide
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
