@@ -6,7 +6,7 @@
 
 We provides the web for chatbot services.
 Ultimately, we will recommend using it through the Nateb sdk.
-Until then, i recommend using the webview module in your iOS app.
+Until then, we recommend using the webview module in your iOS app.
 
 ## Quick Start
 
@@ -55,6 +55,7 @@ func setWidet() {
   
   webView.translatesAutoresizingMaskIntoConstraints = false
   
+  // This website for china-mobile
   if let url = URL(string: "https://widget-cm.travelflan.com.cn") {
       webView.load(URLRequest(url: url))
   }
