@@ -38,20 +38,16 @@ class ViewController: UIViewController, WKUIDelegate {
         
         // set WKWebView
         webView = WKWebView(frame: .zero, configuration: config)
-        // webView.uiDelegate = self
         webView.isHidden = true
-        // view.addSubview(webView)
         
         self.view.addSubview(webView)
         
         // handle constraint
-        // let layoutGuide = view.safeAreaLayoutGuide
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         webView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1).isActive = true
         webView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.9).isActive = true
-        
         webView.translatesAutoresizingMaskIntoConstraints = false
         
         if let url = URL(string: "https://widget-cm.travelflan.com.cn") {
@@ -71,7 +67,7 @@ class ViewController: UIViewController, WKUIDelegate {
 extension ViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "send", let messageBody = message.body as? String {
-            print(messageBody)
+            // Define communication with web
         }
     }
 }
