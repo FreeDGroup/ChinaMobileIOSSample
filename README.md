@@ -66,8 +66,6 @@ In widget_script.js please refer to the following properties.
 ```
 const initialize = {
   type: 'initialize',
-  useEnv: 'iOS',
-  openWidget: true, // open widget without open button in web
-  provider_id: 12 // for china-mobile
+  provider_id: 13 // for china-mobile
 }
 ```
