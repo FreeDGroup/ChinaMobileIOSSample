@@ -13,11 +13,10 @@ bindEvent(window, 'message', (event) => {
     try {
       const { type } = JSON.parse(data)
       if (type === 'loaded') {
+        window.webViewBridge.setEnv('iOS')
         const initialize = {
           type: 'initialize',
-          useEnv: 'iOS',
-          openWidget: true,
-          provider_id: 12
+          provider_id: 13
         }
         window.webViewBridge.send(initialize)
         const message = { type: 'loaded' }
