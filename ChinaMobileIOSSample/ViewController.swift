@@ -44,11 +44,24 @@ class ViewController: UIViewController, WKUIDelegate {
         
         // handle constraint
         webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        webView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1).isActive = true
-        webView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.9).isActive = true
-        webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if #available(iOS 11.0, *) {
+            // consider safeAreaLayoutGuide
+            webView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+//            webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+            webView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            webView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, multiplier: 1).isActive = true
+            // important
+            // multiplier value have to consider your header(if your header 0.1 then 0.9)
+            webView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.9).isActive = true
+        } else {
+            webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            webView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1).isActive = true
+            // important
+            // multiplier value have to consider your header(if your header 0.1 then 0.9)
+            webView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1).isActive = true
+        }
         
         if let url = URL(string: "https://widget-cm.travelflan.com.cn") {
             webView.load(URLRequest(url: url))
